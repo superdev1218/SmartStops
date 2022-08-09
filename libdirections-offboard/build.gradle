@@ -1,0 +1,39 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply from: "${rootDir}/gradle/ktlint.gradle"
+
+android {
+    compileSdkVersion androidVersions.compileSdkVersion
+    buildToolsVersion androidVersions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion androidVersions.minSdkVersion
+        targetSdkVersion androidVersions.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'proguard-consumer.pro'
+    }
+}
+
+dependencies {
+    compileOnly dependenciesList.mapboxAnnotations
+    kapt dependenciesList.mapboxAnnotationsProcessor
+
+    implementation project(':libnavigation-util')
+    api(project(':libnavigation-base'))
+
+    // Support
+    implementation dependenciesList.supportAnnotation
+
+    implementation dependenciesList.kotlinStdLib
+
+    //ktlint
+    ktlint dependenciesList.ktlint
+
+    implementation dependenciesList.mapboxSdkServices
+
+    testImplementation dependenciesList.junit
+    testImplementation dependenciesList.mockk
+}
+
+apply from: "${rootDir}/gradle/jacoco.gradle"

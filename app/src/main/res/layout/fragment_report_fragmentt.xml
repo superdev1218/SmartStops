@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_16sdp">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@drawable/icon_logo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/report_an_inaccuracy"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_12sdp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="@string/report_text_top"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <EditText
+                android:id="@+id/frag_report_et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:hint="NAME"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:backgroundTint="@color/colorAccent"
+                android:padding="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textSize="@dimen/_11sdp" />
+
+            <EditText
+                android:id="@+id/frag_report_et_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/city_province_and_country"
+                android:padding="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:backgroundTint="@color/colorAccent"
+                android:textSize="@dimen/_11sdp" />
+
+            <EditText
+                android:id="@+id/frag_report_et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="@string/email_address"
+                android:padding="@dimen/_10sdp"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:backgroundTint="@color/colorAccent"
+                android:singleLine="true"
+                android:textSize="@dimen/_11sdp" />
+
+            <EditText
+                android:id="@+id/frag_report_et_waypoint_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="@string/waypoint_id"
+                android:padding="@dimen/_10sdp"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:backgroundTint="@color/colorAccent"
+                android:singleLine="true"
+                android:textSize="@dimen/_11sdp" />
+
+            <EditText
+                android:id="@+id/frag_report_et_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:hint="@string/describe_the_inaccuracy"
+                android:maxLines="4"
+                android:minLines="4"
+                android:padding="@dimen/_10sdp"
+                android:scrollbarStyle="insideOverlay"
+                android:scrollbars="vertical"
+                android:singleLine="false"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:backgroundTint="@color/colorAccent"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_11sdp" />
+
+            <EditText
+                android:id="@+id/frag_report_et_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:hint="@string/submit_your_feedback"
+                android:maxLines="4"
+                android:minLines="4"
+                android:padding="@dimen/_10sdp"
+                android:scrollbarStyle="insideOverlay"
+                android:scrollbars="vertical"
+                android:singleLine="false"
+                android:textAlignment="textStart"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:backgroundTint="@color/colorAccent"
+                android:textSize="@dimen/_11sdp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/report_text_bottom"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp" />
+
+            <Button
+                android:id="@+id/frag_report_btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@color/button_bg_red"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

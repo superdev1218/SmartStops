@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_marginBottom="@dimen/_6sdp"
+    android:gravity="center"
+    android:id="@+id/custom_cat_ll"
+    android:layout_marginRight="@dimen/_3sdp"
+    android:layout_marginLeft="@dimen/_3sdp"
+    android:background="@drawable/bg_categories_border"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/_95sdp">
+    <ImageView
+        android:id="@+id/iv_categories_img"
+        android:layout_width="@dimen/_60sdp"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/icon_user"
+        android:layout_gravity="center"
+        android:layout_height="@dimen/_60sdp" />
+
+    <TextView
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:id="@+id/tv_cate_name"
+        android:layout_width="match_parent"
+        android:text="Atm"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content" />
+</LinearLayout>

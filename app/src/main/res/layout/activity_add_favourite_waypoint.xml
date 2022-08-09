@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_8sdp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:src="@drawable/icon_img_back"
+                android:id="@+id/iv_back"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_height="@dimen/_30sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_toRightOf="@id/iv_back"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Add Favourite Waypoint"
+
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_17sdp" />
+            </LinearLayout>
+        </RelativeLayout>
+        <ScrollView android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:fillViewport="true"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/_7sdp"
+                    android:background="@drawable/add_fav_wapoint_et_border"
+                    android:layout_height="@dimen/_45sdp">
+                    <EditText
+                        android:id="@+id/frag_add_fav_way_et_waypointname"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/_11sdp"
+                        android:background="@null"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:hint="ENTER WAYPOINT NAME"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/add_fav_wapoint_et_border"
+                    android:layout_height="@dimen/_45sdp">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/frag_add_fav_way_et_address"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/_11sdp"
+                        android:background="@null"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:hint="ENTER WAYPOINT ADDRESS"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/add_fav_wapoint_et_border"
+                    android:layout_height="@dimen/_45sdp">
+                    <EditText
+                        android:id="@+id/frag_add_fav_way_et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/_11sdp"
+                        android:background="@null"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:hint="ENTER EMAIL"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/add_fav_wapoint_et_border"
+                    android:layout_height="@dimen/_45sdp">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/frag_add_fav_way_et_phone"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/_11sdp"
+                        android:singleLine="true"
+                        android:inputType="phone"
+                        android:background="@null"
+                        android:textColor="@color/black"
+                        android:hint="ENTER PHONE NUMBER"/>
+                </LinearLayout>
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@drawable/add_fav_wapoint_et_border"
+                    android:layout_height="@dimen/_45sdp">
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:text="Select Country"
+                        android:id="@+id/auto_tv_select_country"
+                        android:layout_gravity="center"
+                        android:focusableInTouchMode="false"
+                        android:backgroundTint="@color/black"
+                        android:background="@null"
+                        android:textSize="@dimen/_11sdp"
+                        android:drawableRight="@drawable/ic_arrow_drop_down"
+                        android:textColor="@color/black"
+                        android:gravity="start|center_vertical"
+                        android:layout_height="match_parent"
+                        />
+                    <!--<Spinner-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:padding="@dimen/_7sdp"-->
+                    <!--android:id="@+id/frag_add_fav_way_spinner_country"-->
+                    <!--android:spinnerMode="dropdown"-->
+                    <!--android:layout_height="match_parent"/>-->
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@drawable/add_fav_wapoint_et_border"
+                    android:layout_height="@dimen/_45sdp">
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:text="Select Province"
+                        android:id="@+id/auto_tv_select_prince"
+                        android:layout_gravity="center"
+                        android:focusableInTouchMode="false"
+                        android:backgroundTint="@color/black"
+                        android:background="@null"
+                        android:textSize="@dimen/_11sdp"
+                        android:drawableRight="@drawable/ic_arrow_drop_down"
+                        android:textColor="@color/black"
+                        android:gravity="start|center_vertical"
+                        android:layout_height="match_parent"
+                        />
+                </LinearLayout>
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@drawable/add_fav_wapoint_et_border"
+                    android:layout_height="@dimen/_45sdp">
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:text="Select Postal Code"
+                        android:id="@+id/auto_tv_select_postal"
+                        android:layout_gravity="center"
+                        android:focusableInTouchMode="false"
+                        android:backgroundTint="@color/black"
+                        android:background="@null"
+                        android:textSize="@dimen/_11sdp"
+                        android:drawableRight="@drawable/ic_arrow_drop_down"
+                        android:textColor="@color/black"
+                        android:gravity="start|center_vertical"
+                        android:layout_height="match_parent"
+                        />
+                </LinearLayout>
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@drawable/add_fav_wapoint_et_border"
+                    android:layout_height="@dimen/_45sdp">
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:text="Select Waypoint Category"
+                        android:id="@+id/auto_tv_select_waypoint_cat"
+                        android:layout_gravity="center"
+                        android:focusableInTouchMode="false"
+                        android:backgroundTint="@color/black"
+                        android:background="@null"
+                        android:textSize="@dimen/_11sdp"
+                        android:drawableRight="@drawable/ic_arrow_drop_down"
+                        android:textColor="@color/black"
+                        android:gravity="start|center_vertical"
+                        android:layout_height="match_parent"
+                        />
+                </LinearLayout>
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@drawable/add_fav_wapoint_et_border"
+                    android:layout_height="@dimen/_45sdp">
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:text="Select Waypoint Sub-Category"
+                        android:id="@+id/auto_tv_select_waypoint_sub_cat"
+                        android:layout_gravity="center"
+                        android:focusableInTouchMode="false"
+                        android:backgroundTint="@color/black"
+                        android:background="@null"
+                        android:textSize="@dimen/_11sdp"
+                        android:drawableRight="@drawable/ic_arrow_drop_down"
+                        android:textColor="@color/black"
+                        android:gravity="start|center_vertical"
+                        android:layout_height="match_parent"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@drawable/add_fav_wapoint_et_border"
+                    android:layout_height="@dimen/_45sdp">
+
+                    <ImageView
+                        android:id="@+id/img1"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/ic_add"
+                        android:layout_margin="@dimen/_5sdp"/>
+
+
+                    <ImageView
+                        android:id="@+id/img2"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/ic_add"
+                        android:visibility="gone"
+                        android:layout_margin="@dimen/_5sdp"/>
+
+
+                    <ImageView
+                        android:id="@+id/img3"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/ic_add"
+                        android:visibility="gone"
+                        android:layout_margin="@dimen/_5sdp"/>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:id="@+id/frag_add_fav_way_btn_submit"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/bg_btn_red_rectangle"
+                    android:gravity="center"
+
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_gravity="center"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="SUBMIT"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_13sdp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

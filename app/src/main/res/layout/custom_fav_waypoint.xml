@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_3sdp"
+    android:paddingLeft="@dimen/_8sdp"
+    android:paddingRight="@dimen/_8sdp"
+    android:paddingBottom="@dimen/_4sdp"
+    android:paddingTop="@dimen/_4sdp"
+    android:layout_marginBottom="@dimen/_3sdp"
+    android:id="@+id/ll_custom_fav_waypoint_main"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1.6"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/custom_fav_waypoint_name"
+            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:text="abc"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/custom_fav_waypoint_address"
+            android:layout_width="match_parent"
+            android:text="abc"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="@dimen/_19sdp"
+        android:layout_height="@dimen/_19sdp"
+        android:background="@drawable/bg_button_red"
+        android:layout_marginRight="@dimen/_2sdp"
+        android:padding="@dimen/_2sdp"
+        android:src="@drawable/icon_arrow_right" />
+
+
+</LinearLayout>

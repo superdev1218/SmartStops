@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/_10sdp"
+        android:gravity="center"
+        android:layout_above="@id/l3"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout_top"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_height="@dimen/_110sdp">
+
+            <TextView
+                android:id="@+id/tv_total_active_users"
+                android:layout_width="wrap_content"
+                android:lineSpacingExtra="@dimen/_3sdp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/button_signin_color" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l1"
+            android:layout_below="@id/layout_top"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_5sdp"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="@dimen/_85sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_height="@dimen/_85sdp"
+                android:src="@drawable/icon_logo" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_below="@+id/l1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:src="@drawable/map_dot" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/l3"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingVertical="@dimen/_12sdp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_learn_more"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_37sdp"
+            android:background="@color/button_bg_red"
+            android:text="Please Continue"
+            android:textAllCaps="false"
+            android:onClick="onClickPleaseContinue"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+</RelativeLayout>

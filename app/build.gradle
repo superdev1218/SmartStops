@@ -1,0 +1,178 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.triplet.play'
+apply from: "${rootDir}/gradle/script-git-version.gradle"
+apply from: "${rootDir}/gradle/ktlint.gradle"
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    playConfigs {
+        defaultAccountConfig {
+            serviceAccountCredentials = file("$project.rootDir/android-gl-native-15d95ab30d0f.json")
+        }
+    }
+
+    def getGitHash = { ->
+        try {
+            def stdout = new ByteArrayOutputStream()
+            exec {
+                commandLine 'git', 'rev-parse', '--short', 'HEAD'
+                standardOutput = stdout
+            }
+            return stdout.toString().trim()
+        } catch (Exception exception) {
+            return ""
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.creativeinfoway.smartstops"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        buildConfigField "String", "GIT_HASH", "\"${getGitHash()}\""
+    }
+
+    /*signingConfigs {
+    release {
+      keyAlias System.getenv("CIRCLECI_ANDROID_KEYSTORE_ALIAS")
+      keyPassword System.getenv("CIRCLECI_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
+      storeFile file("$project.rootDir/navigation_testapp.keystore")
+      storePassword System.getenv("CIRCLECI_ANDROID_KEYSTORE_PASSWORD")
+    }
+  }*/
+
+    buildTypes {
+        debug {
+            testCoverageEnabled = false
+            manifestPlaceholders = [enableCrashReporting: "false"]
+        }
+        release {
+            minifyEnabled false
+            // signingConfig signingConfigs.release
+            manifestPlaceholders = [enableCrashReporting: "true"]
+        }
+    }
+
+    dexOptions {
+        maxProcessCount 8
+        javaMaxHeapSize "2g"
+        preDexLibraries true
+    }
+
+
+    lintOptions {
+        abortOnError false
+    }
+
+    play {
+        serviceAccountCredentials = playConfigs.defaultAccountConfig.serviceAccountCredentials
+        track = System.getenv("GOOGLE_PLAY_TRACK") ?: "internal"
+    }
+}
+
+dependencies {
+    implementation project(':libdirections-session')
+    implementation project(':libdirections-offboard')
+    implementation project(':libnavigation-util')
+
+    //ktlint
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    ktlint dependenciesList.ktlint
+
+    // Kotlin support
+    implementation dependenciesList.kotlinStdLib
+    implementation dependenciesList.ankoCommon
+
+    // Mapbox Navigation SDK
+    implementation project(':libandroid-navigation-ui')
+//    implementation dependenciesList.mapboxMapSdk
+//    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:8.5.1'
+    implementation dependenciesList.mapboxSearchSdk
+    implementation dependenciesList.mapboxCrashMonitor
+
+    // Support libraries
+    implementation dependenciesList.supportAppcompatV7
+    implementation dependenciesList.supportDesign
+    implementation dependenciesList.supportRecyclerView
+    implementation dependenciesList.supportConstraintLayout
+    implementation dependenciesList.supportCardView
+    implementation dependenciesList.lifecycleExtensions
+
+    implementation dependenciesList.gmsLocation
+
+    implementation dependenciesList.firebaseCore
+    implementation dependenciesList.crashlytics
+
+    implementation dependenciesList.multidex
+
+    // Logging
+    implementation dependenciesList.timber
+
+    // Butter Knife
+    implementation dependenciesList.butterKnife
+    annotationProcessor dependenciesList.butterKnifeProcessor
+
+    // Leak Canary
+    debugImplementation dependenciesList.leakCanaryDebug
+    releaseImplementation dependenciesList.leakCanaryRelease
+    androidTestImplementation dependenciesList.leakCanaryTest
+
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v8:0.7.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'org.jsoup:jsoup:1.12.1'
+    implementation 'com.karumi:dexter:6.0.0'
+    implementation 'com.github.lolucosmin:PermissionsWrapper:version_1.7'
+
+
+    //bugsee plugin
+
+    implementation 'com.bugsee:bugsee-android:1.17.2'
+    implementation 'me.relex:circleindicator:2.1.4'
+    implementation 'com.github.smarteist:autoimageslider:1.3.9'
+
+    // Unit Testing
+    testImplementation dependenciesList.junit
+    testImplementation dependenciesList.mockito
+    testImplementation dependenciesList.mockk
+
+    // Instrumentation testing
+    androidTestImplementation dependenciesList.testRules
+    androidTestImplementation(dependenciesList.testEspressoCore, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestImplementation dependenciesList.testEspressoContrib
+}
+
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+    maven { url 'https://maven.google.com' }
+}
+
+apply from: "${rootDir}/gradle/developer-config.gradle"
+apply from: "${rootDir}/gradle/checkstyle.gradle"
+apply from: "${rootDir}/gradle/dependency-updates.gradle"
+apply plugin: 'jacoco'
